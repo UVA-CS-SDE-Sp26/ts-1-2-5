@@ -1,0 +1,16 @@
+Team Member A : Shelby Brewer (bqz6dz)
+
+Option 1 ~ No arguments passed in
+Step 1.) Call the getFile() method and return a list of all of the files from C
+Step 2.) Prompt the user to select a file
+
+Option 2 ~ One argument passed in
+Step 1.) Should receive the readable text from C
+Step 2.) Output the readable text
+NOTE: If no second argument passed in it will run with the default cipher
+
+Option 3 ~ Two arguments passed in
+Step 1.) Should receive the readable text from C
+Step 2.) Output the readable text
+
+For testing I can handle argument validation
