@@ -1,0 +1,40 @@
+TopSecret - Data Handling
+Avery Li
+2/4/26
+
+The entry point for program will be TopSecret, but the implementation will be housed in DataHandling.java
+
+This program takes in 1 (optional) argument, the name of the file to be requested, as a string.
+
+You are responsible for the part of the problem that reads data files. The program should expect files in a
+folder named data (in the same directory of the program, or in the root of your project folder.) When a request
+for a file is received, this part of the program will return the file contents. This part of the program should
+handle all the direct access to files. Document the plan your team makes for the design of your software in a
+text file named filehandler.txt.
+
+As such, the two tasks assigned will be divided into two functions, one for returning text of a file and the other for
+returning the names of all the files
+
+Pseudocode for returning names of files:
+//takes in no arguments, returns array of type String[]
+import java.io.File
+
+let path = "./data/"
+let folder = new File(path)
+let names = folder.list()
+return names
+
+Pseudocode for returning text of a file:
+//takes in one string argument, name of file, called name, returns String output, contents of file
+//throws FileNotFoundException
+import java.util.Scanner
+import java.io.File
+import java.io.FileNotFoundException;
+
+let file = new File(name)
+let res = ""
+let fileReader = new Scanner(file)
+while (fileReader.hasNextLine()):
+    res += fileReader.nextLine() + "\n";
+return res
+
