@@ -1,0 +1,39 @@
+TopSecret - Program Control (Role C)
+Niya Talluri
+
+Purpose: To connect the command line to the file handler. It takes what the user inputs
+through the command line, deciphers it, and then it returns the contents of the deciphered file.
+
+Possible Outcomes Based on What the User Types on the Command Line:
+If the user inputs zero argument, the list of files from Team Member B's method returning the numbered files available is displayed
+If the user inputs one argument, the contents of that file should be returned and deciphered by
+the default key.
+If the user inputs two arguments, the first parameter will specify what file and the second parameter
+is an alternate key used to decipher the file.
+
+
+Pseudocode for decipheredFileContents method
+if args has no arguments:
+    call and return Team Member B's method returning the numbered files available to display
+
+let fileContents be equal to what is returned from Team Member B's method that returns the contents of the file using userInput's first argument
+let decipheredFile equal an empty string
+
+if args has one argument:
+    for each line in fileContents:
+        decipheredFile += Team Member D's method deciphering the line from fileContents
+
+if args has two arguments:
+    for each line in fileContents:
+        decipheredFile += Team Member D's method deciphering the line from fileContents using userInput's second argument as the deciphering key
+return decipheredFile
+
+
+Tests:
+
+decipheredFileContents():
+    if args is an empty list, then a list of all the files numbered must be returned
+    if args has one argument, then the deciphered contents of that file will be returned
+    if args has two arguments, then the contents of that file will be returned using the deciphering key in the second argument
+    if args has 3 or more arguments, then an empty string will be returned
+
