@@ -3,11 +3,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Decipher {
+public class Cipher {
     private Map<Character, Character> keyMap;
     private Path keyPath;
 
-    public Decipher(Path keyPath) {
+    public Cipher(Path keyPath) {
         this.keyPath = keyPath;
         keyMap = new HashMap<>();
     }

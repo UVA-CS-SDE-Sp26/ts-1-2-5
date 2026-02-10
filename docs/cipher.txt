@@ -15,12 +15,12 @@ This file will contain two lines, the first line is the actual letter,
 the second line is the cipher match. When the cipher is accessed, it must be validated.
 
 UML:
-decipher
+Cipher
 ---------------------------------------------------
 -keyMap: HashMap<Character, Character>
 -keyPath: Path
 ---------------------------------------------------
-+decipher(keyPath: Path)
++Cipher(keyPath: Path)
 +loadKey(): void
 +decode(text: String): String
 -hasDuplicates(): boolean
