@@ -72,6 +72,23 @@ Psuedocode:
 
     return result.toString()
 
+Tests:
+    loadKey()
+        1. works with a correct key.txt
+        2. doesn't work with a fake path with no file
+        3. more than 2 lines
+        4. actual and cipher don't have same length
+
+    decode()
+        1. empty map
+
+    hasDuplicates
+        1. cipher has duplicates
+        2. actual has duplicates
+        3. no duplicates
+        4. both have duplicates
+
+
 
 
 
