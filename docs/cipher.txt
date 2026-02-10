@@ -1,0 +1,92 @@
+TopSecret - Cipher
+Ananya Dandemraju
+2/8/26
+
+The entry point for the program will be TopSecret, but the cipher implementation
+will be housed in decipher.java
+
+This component takes in 1 required input, the ciphered text as a string,
+and 1 (optional) argument, the path to a key file used for deciphering.
+
+This feature should accept a ciphered string and return it deciphered.
+The cipher will be stored in a file named key.txt, stored in a folder, ciphers,
+(in the same directory of the program, or in the root of your project folder.)
+This file will contain two lines, the first line is the actual letter,
+the second line is the cipher match. When the cipher is accessed, it must be validated.
+
+UML:
+decipher
+---------------------------------------------------
+-keyMap: HashMap<Character, Character>
+-keyPath: Path
+---------------------------------------------------
++decipher(keyPath: Path)
++loadKey(): void
++decode(text: String): String
+-validateKey(actual:String, cipher:String): void
+-hasDuplicates(): boolean
+
+
+Psuedocode:
+    keyMap : HashMap<Character, Character>
+    keyPath : Path
+
+    //constructor
+    set this.keyPath = keyPath
+    initialize keyMap as new HashMap
+
+    read all lines from keyPath into lines
+    if lines != 2
+        throw error
+
+    actual = lines[0]
+    cipher = lines[1]
+
+    if length of actual != length of cipher
+        throw error
+
+    if hasDuplicates(cipher)
+        throw error
+
+    if hasDuplicates(actual)
+        throw error
+
+    if actual.length()==0 || cipher.length()==0
+        throw error
+
+    validateKey(actual, cipher)
+
+    let keyMap = map<cipherChar, actualChar>
+
+    for i from 0 to length of cipher
+        keyMap.put(cipher.charAt(i), actual.charAt(i))
+
+    let result = new StringBuilder()
+
+    for each letter in text
+        letter = text.charAt(i)
+
+        if keyMap contains letter
+            result.append(keyMap.get(letter))
+        else
+            result.append(letter)
+
+    return result.toString()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
