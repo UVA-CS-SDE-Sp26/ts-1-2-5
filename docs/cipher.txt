@@ -23,7 +23,6 @@ decipher
 +decipher(keyPath: Path)
 +loadKey(): void
 +decode(text: String): String
--validateKey(actual:String, cipher:String): void
 -hasDuplicates(): boolean
 
 
