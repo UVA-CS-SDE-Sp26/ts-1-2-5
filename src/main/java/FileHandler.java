@@ -18,19 +18,22 @@ public class FileHandler {
     }
 
     public String[] getNames() {
-        String path = "ts-1-2-5/data/";
+        String path = "data/";
         File folder = new File(path);
         fileList = folder.list();
         return fileList;
     }
 
     public String readFile(String fileName) throws FileNotFoundException {
-        String path = "ts-1-2-5/data/";
+        String path = "data/";
         File file = new File(path + fileName);
         Scanner scanner = new Scanner(file);
         String res = "";
         while (scanner.hasNextLine()) {
             res += scanner.nextLine() + "\n";
+        }
+        if (!res.equals("")) {
+            res = res.substring(0, res.length() - 1);
         }
         return res;
     }
