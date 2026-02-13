@@ -17,7 +17,7 @@ public class TopSecret {
         }
         else if (args.length == 2){
             System.out.println("Now printing file " + args[0] + " using the key from file: " + args[1]);
-            System.out.println(c.getEncipheredFile(args[0], args[1]));
+            System.out.println(c.getAlternateKeyDecipheredFile(args[0], args[1]));
         }
         else{
             System.out.println("Invalid number of arguments");

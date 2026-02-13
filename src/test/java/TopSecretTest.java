@@ -42,7 +42,7 @@ class TopSecretTest {
             public String getDecipheredFile(String f) {
                 return "fake deciphered";
             }
-            public String getEncipheredFile(String f, String k) {
+            public String getAlternateKeyDecipheredFile(String f, String k) {
                 return "fake enciphered";
             }
         };
@@ -75,7 +75,7 @@ class TopSecretTest {
         String[] arg2 = {"test.txt", "key.txt"};
         if(arg2.length == 2){
             System.out.println("Now printing file " + arg2[0] + " using the key from file: " + arg2[1]);
-            System.out.println(fakeControl.getEncipheredFile(arg2[0], arg2[1]));
+            System.out.println(fakeControl.getAlternateKeyDecipheredFile(arg2[0], arg2[1]));
         }
         out = output.toString();
         assertTrue(out.contains("using the key from file"));

@@ -13,4 +13,7 @@ Option 3 ~ Two arguments passed in
 Step 1.) Should receive the readable text from C
 Step 2.) Output the readable text
 
-For testing I can handle argument validation
+Option 4 ~ More than two arguments passed in
+An error message will occur
+
+For testing I will ensure that each of the four options are handled accordingly
