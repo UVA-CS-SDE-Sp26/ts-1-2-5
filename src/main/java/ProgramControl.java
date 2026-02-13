@@ -12,26 +12,32 @@ public class ProgramControl {
     public String listFiles(){
         String[] files = fileHandler.getNames();
         String returnFiles = "";
-        int fileCounter = 0;
         for(int i = 0; i < files.length; i++){
-            fileCounter++;
-            returnFiles += (fileCounter + " " + files[i] + "/n");
+            returnFiles += String.format("%02d", i+1) + " " + files[i] + "\n";
         }
         return returnFiles;
     }
 
-    public String getDecipheredFile(String fileName) throws FileNotFoundException {
+    public String getFileName(String fileNumber){
+        int fileIndex = Integer.parseInt(fileNumber) - 1;
+        String fileName = fileHandler.getNames()[fileIndex];
+        return fileName;
+    }
+
+    public String getDecipheredFile(String fileNumber) throws FileNotFoundException {
         Path keyPath = Paths.get("ciphers/key.txt");
         Cipher cipher = new Cipher(keyPath);
         cipher.loadKey();
+        String fileName = getFileName(fileNumber);
         String fileContents = fileHandler.readFile(fileName);
         return cipher.decode(fileContents);
     }
 
-    public String getEncipheredFile(String fileName, String decipheringKey) throws FileNotFoundException {
+    public String getEncipheredFile(String fileNumber, String decipheringKey) throws FileNotFoundException {
         Path keyPath = Paths.get("ciphers/" + decipheringKey);
         Cipher cipher = new Cipher(keyPath);
         cipher.loadKey();
+        String fileName = getFileName(fileNumber);
         String fileContents = fileHandler.readFile(fileName);
         return cipher.decode(fileContents);
     }
