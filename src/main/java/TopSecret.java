@@ -29,6 +29,7 @@ public class TopSecret {
             System.out.println("ERROR : Incorrect number formatting");
         } catch (Exception e) {
             System.out.println("ERROR : general error message, code exhibited unexpected behavior");
+            System.out.println(e.getMessage());
         }
     }
 }
