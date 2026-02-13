@@ -23,8 +23,10 @@ public class TopSecret {
             }
         } catch (FileNotFoundException e) {
             System.out.println("ERROR : File not found");
+        } catch (IndexOutOfBoundsException e){
+            System.out.println("ERROR : Number too big");
         } catch (NumberFormatException e) {
-            System.out.println("ERROR : Number too large");
+            System.out.println("ERROR : Incorrect number formatting");
         } catch (Exception e) {
             System.out.println("ERROR : general error message, code exhibited unexpected behavior");
         }
