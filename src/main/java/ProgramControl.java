@@ -33,7 +33,7 @@ public class ProgramControl {
         return cipher.decode(fileContents);
     }
 
-    public String getEncipheredFile(String fileNumber, String decipheringKey) throws FileNotFoundException {
+    public String getAlternateKeyDecipheredFile(String fileNumber, String decipheringKey) throws FileNotFoundException {
         Path keyPath = Paths.get("ciphers/" + decipheringKey);
         Cipher cipher = new Cipher(keyPath);
         cipher.loadKey();
