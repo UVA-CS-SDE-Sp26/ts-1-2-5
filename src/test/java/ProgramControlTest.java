@@ -78,7 +78,7 @@ class ProgramControlTest {
                 "pg b ubshfu vtfs't Joufsofu usbggjd. Dbsojwpsf xbt jnqmfnfoufe jo Pdupcfs 2008. Cz 3aa6 ju ibe cffo sfqmbdfe xjui\n" +
                 "jnqspwfe dpnnfsdjbm tpguxbsf.";
         String expected = programControl.getAlternateKeyDecipheredFile("01", "alternateKey.txt");
-        assertEquals(actual, expected);
+        assertEquals(actual, expected, "The contents of the file do not match up to the correct file deciphered using the alternate key given");
     }
 
 
