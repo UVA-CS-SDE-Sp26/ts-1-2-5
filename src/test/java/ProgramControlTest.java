@@ -56,15 +56,16 @@ class ProgramControlTest {
         assertEquals(actual, expected, "The contents of the file do not match up to the correct file deciphered using the default key");
     }
 
+
     @Test
     public void testGetAlternateKeyDecipheredFile1() throws FileNotFoundException {
         FileHandler fileHandler = new FileHandler();
         ProgramControl programControl = new ProgramControl(fileHandler);
-        String actual = "COINTELPRO (a syllabic abbreviation derived from Counter Intelligence Program) was a series of covert and illegal\n" +
-                "projects conducted between 1956 and 1971 by the United States Federal Bureau of Investigation (FBI) aimed at\n" +
-                "surveilling, infiltrating, discrediting, and disrupting American political parties and organizations that the FBI\n" +
-                "perceived as subversive.";
-        String expected = programControl.getAlternateKeyDecipheredFile("02", "key.txt");
+        String actual = "DPJOUFMQSP (b tzmmbcjd bccsfwjbujpo efsjwfe gspn Dpvoufs Joufmmjhfodf Qsphsbn) xbt b tfsjft pg dpwfsu boe jmmfhbm\n" +
+                "qspkfdut dpoevdufe cfuxffo 2067 boe 2082 cz uif Vojufe Tubuft Gfefsbm Cvsfbv pg Jowftujhbujpo (GCJ) bjnfe bu\n" +
+                "tvswfjmmjoh, jogjmusbujoh, ejtdsfejujoh, boe ejtsvqujoh Bnfsjdbo qpmjujdbm qbsujft boe pshbojAbujpot uibu uif GCJ\n" +
+                "qfsdfjwfe bt tvcwfstjwf.";
+        String expected = programControl.getAlternateKeyDecipheredFile("04", "alternateKey.txt");
         assertEquals(actual, expected, "The contents of the file do not match up to the correct file deciphered using the alternate key given");
     }
 
@@ -72,12 +73,12 @@ class ProgramControlTest {
     public void testGetAlternateKeyDecipheredFile2() throws FileNotFoundException {
         FileHandler fileHandler = new FileHandler();
         ProgramControl programControl = new ProgramControl(fileHandler);
-        String actual = "Carnivore, later renamed DCS1000, was a system implemented by the Federal Bureau of Investigation (FBI) that was\n" +
-                "designed to monitor email and electronic communications. It used a customizable packet sniffer that could monitor all\n" +
-                "of a target user's Internet traffic. Carnivore was implemented in October 1997. By 2005 it had been replaced with\n" +
-                "improved commercial software.";
-        String expected = programControl.getAlternateKeyDecipheredFile("03", "key.txt");
-        assertEquals(actual, expected, "The contents of the file do not match up to the correct file deciphered using the alternate key given");
+        String actual = "Dbsojwpsf, mbufs sfobnfe EDT2aaa, xbt b tztufn jnqmfnfoufe cz uif Gfefsbm Cvsfbv pg Jowftujhbujpo (GCJ) uibu xbt\n" +
+                "eftjhofe up npojups fnbjm boe fmfduspojd dpnnvojdbujpot. Ju vtfe b dvtupnjAbcmf qbdlfu tojggfs uibu dpvme npojups bmm\n" +
+                "pg b ubshfu vtfs't Joufsofu usbggjd. Dbsojwpsf xbt jnqmfnfoufe jo Pdupcfs 2008. Cz 3aa6 ju ibe cffo sfqmbdfe xjui\n" +
+                "jnqspwfe dpnnfsdjbm tpguxbsf.";
+        String expected = programControl.getAlternateKeyDecipheredFile("01", "alternateKey.txt");
+        assertEquals(actual, expected);
     }
 
 
