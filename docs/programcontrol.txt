@@ -4,36 +4,60 @@ Niya Talluri
 Purpose: To connect the command line to the file handler. It takes what the user inputs
 through the command line, deciphers it, and then it returns the contents of the deciphered file.
 
-Possible Outcomes Based on What the User Types on the Command Line:
-If the user inputs zero argument, the list of files from Team Member B's method returning the numbered files available is displayed
-If the user inputs one argument, the contents of that file should be returned and deciphered by
-the default key.
-If the user inputs two arguments, the first parameter will specify what file and the second parameter
-is an alternate key used to decipher the file.
+The program should be able to:
+1: Provide a list of the files available, numbered
+2: Request for a specific file, and return the deciphered contents of that file
+3: Request for a specific file that's deciphered with an alternative key, and return the contents of that
+file deciphered with the alternate key
 
+For this program, there will be one private instance variable, fileHandler, which has a references the FileHandler
+reference object.
 
-Pseudocode for decipheredFileContents method
-if args has no arguments:
-    call and return Team Member B's method returning the numbered files available to display
+Pseudocode for listFiles method:
+let files be equal to an array of the possible files by calling fileHandler.getNames()
+let returnFiles be an empty string that will store a list of the files
+for each index from 0 to the length of the files - 1:
+    returnFiles += a numbered line with file name
+return returnFiles
 
-let fileContents be equal to what is returned from Team Member B's method that returns the contents of the file using userInput's first argument
-let decipheredFile equal an empty string
+Pseudocode for getFileName method (this method takes in a string fileNumber):
+let fileIndex equal to an integer version of the fileNumber - 1
+let fileName equal to fileHandler.getNames()[fileIndex]
+return fileName
 
-if args has one argument:
-    for each line in fileContents:
-        decipheredFile += Team Member D's method deciphering the line from fileContents
+Pseudocode for getDecipheredFile method (this method takes in a string fileNumber):
+let keyPath equal to the path of key.txt
+let cipher equal to new cipher(keyPath)
+cipher.loadKey()
+let fileName equal to getFileName(fileNumber)
+let fileContents equal to fileHandler.readFile(fileName)
+return cipher.decode(fileContents)
 
-if args has two arguments:
-    for each line in fileContents:
-        decipheredFile += Team Member D's method deciphering the line from fileContents using userInput's second argument as the deciphering key
-return decipheredFile
+Pseudocode for getAlternateKeyDecipheredFile method (this method takes in a string fileNumber and a string decipheringKey)
+let keyPath equal to the path of the decipheringKey
+let cipher equal to new cipher(keyPath)
+cipher.loadKey()
+let fileName equal to getFileName(fileNumber)
+let fileContents equal to fileHandler.readFile(fileName)
+return cipher.decode(fileContents)
 
 
 Tests:
+listFiles():
+    return a numbered list of the files available
 
-decipheredFileContents():
-    if args is an empty list, then a list of all the files numbered must be returned
-    if args has one argument, then the deciphered contents of that file will be returned
-    if args has two arguments, then the contents of that file will be returned using the deciphering key in the second argument
-    if args has 3 or more arguments, then an empty string will be returned
+getFileName(fileNumber):
+    if fileNumber is "01", then the file's name, "carnivore.txt", will be returned
+    if fileNumber is "04", then the file's name, "cointelpro.txt", will be returned
 
+getDecipheredFile(fileNumber):
+    if fileNumber is "03", then the deciphered contents of "carnivore.cip" using the deciphering key key.txt must be returned
+    if fileNumber is "02", then the deciphered contents of "cointelpro.cip" using the deciphering key key.txt must be returned
+
+getDecipheredFile(fileNumber, decipheringKey):
+    if fileNumber is "04", then the deciphered contents of "cointelpro.txt" using the deciphering key alternateKey.txt must be returned
+    if fileNumber is "01", then the deciphered contents of "carnivore.txt" using the deciphering key alternateKey.txt must be returned
+
+Also, the alternate key in my tests simply is a reverse of the original key in key.txt. This explains why if my fileNumber was "01", for example,
+meaning that it would refer to the contents of "carnivore.txt", then what would be returned would be the contents of "carnivore.cip",
+which is the opposite of how it would work for the original key.
